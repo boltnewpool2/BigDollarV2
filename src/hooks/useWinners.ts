@@ -36,6 +36,21 @@ export const useWinners = () => {
     }
   };
 
+  const purgeWinners = async () => {
+    try {
+      const { error } = await supabase
+        .from('winners')
+        .delete()
+        .neq('id', '00000000-0000-0000-0000-000000000000'); // Delete all records
+
+      if (error) throw error;
+      await fetchWinners(); // Refresh the list
+    } catch (error) {
+      console.error('Error purging winners:', error);
+      throw error;
+    }
+  };
+
   useEffect(() => {
     fetchWinners();
 
@@ -55,5 +70,5 @@ export const useWinners = () => {
     };
   }, []);
 
-  return { winners, loading, addWinners, fetchWinners };
+  return { winners, loading, addWinners, fetchWinners, purgeWinners };
 };

@@ -40,62 +40,62 @@ export const GuidesView: React.FC = () => {
   }, [guides]);
 
   return (
-    <div className="space-y-6">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 space-y-6 p-6">
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-6 text-white">
+        <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 text-white border border-white/20 shadow-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-blue-100 text-sm">Total Guides</p>
-              <p className="text-3xl font-bold">{guides.length}</p>
+              <p className="text-blue-200 text-sm font-medium">Total Guides</p>
+              <p className="text-4xl font-bold bg-gradient-to-r from-blue-300 to-cyan-300 bg-clip-text text-transparent">{guides.length}</p>
             </div>
-            <User className="w-8 h-8 text-blue-200" />
+            <User className="w-10 h-10 text-blue-300" />
           </div>
         </div>
         
-        <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-6 text-white">
+        <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 text-white border border-white/20 shadow-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-green-100 text-sm">Total Tickets</p>
-              <p className="text-3xl font-bold">{stats.totalTickets.toLocaleString()}</p>
+              <p className="text-green-200 text-sm font-medium">Total Tickets</p>
+              <p className="text-4xl font-bold bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">{stats.totalTickets.toLocaleString()}</p>
             </div>
-            <Ticket className="w-8 h-8 text-green-200" />
+            <Ticket className="w-10 h-10 text-green-300" />
           </div>
         </div>
         
-        <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl p-6 text-white">
+        <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 text-white border border-white/20 shadow-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-purple-100 text-sm">Avg NPS</p>
-              <p className="text-3xl font-bold">{stats.avgNPS.toFixed(1)}</p>
+              <p className="text-purple-200 text-sm font-medium">Avg NPS</p>
+              <p className="text-4xl font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">{stats.avgNPS.toFixed(1)}</p>
             </div>
-            <Award className="w-8 h-8 text-purple-200" />
+            <Award className="w-10 h-10 text-purple-300" />
           </div>
         </div>
         
-        <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-6 text-white">
+        <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 text-white border border-white/20 shadow-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-orange-100 text-sm">Avg Refund%</p>
-              <p className="text-3xl font-bold">{stats.avgRefund.toFixed(1)}%</p>
+              <p className="text-orange-200 text-sm font-medium">Avg Refund%</p>
+              <p className="text-4xl font-bold bg-gradient-to-r from-orange-300 to-red-300 bg-clip-text text-transparent">{stats.avgRefund.toFixed(1)}%</p>
             </div>
-            <Percent className="w-8 h-8 text-orange-200" />
+            <Percent className="w-10 h-10 text-orange-300" />
           </div>
         </div>
       </div>
 
       {/* Filters */}
-      <div className="bg-white rounded-xl shadow-sm p-6">
+      <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20 shadow-xl">
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/60" />
               <input
                 type="text"
-                placeholder="Search guides..."
+                placeholder="🔍 Search guides..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl text-white placeholder-white/60 focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200"
               />
             </div>
           </div>
@@ -104,7 +104,7 @@ export const GuidesView: React.FC = () => {
             <select
               value={selectedDepartment}
               onChange={(e) => setSelectedDepartment(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200"
             >
               <option value="">All Departments</option>
               {departments.map(dept => (
@@ -115,7 +115,7 @@ export const GuidesView: React.FC = () => {
             <select
               value={selectedSupervisor}
               onChange={(e) => setSelectedSupervisor(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200"
             >
               <option value="">All Supervisors</option>
               {supervisors.map(supervisor => (
@@ -127,88 +127,88 @@ export const GuidesView: React.FC = () => {
       </div>
 
       {/* Guides Table */}
-      <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+      <div className="bg-white/10 backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden border border-white/20">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50">
+            <thead className="bg-white/20 backdrop-blur-sm">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-4 text-left text-xs font-bold text-white uppercase tracking-wider">
                   Guide
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-4 text-left text-xs font-bold text-white uppercase tracking-wider">
                   Department
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-4 text-left text-xs font-bold text-white uppercase tracking-wider">
                   Supervisor
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-4 text-left text-xs font-bold text-white uppercase tracking-wider">
                   NPS
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-4 text-left text-xs font-bold text-white uppercase tracking-wider">
                   NRPC
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-4 text-left text-xs font-bold text-white uppercase tracking-wider">
                   Refund %
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-4 text-left text-xs font-bold text-white uppercase tracking-wider">
                   Total Tickets
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="divide-y divide-white/10">
               {filteredGuides.map((guide) => (
-                <tr key={guide.id} className="hover:bg-gray-50 transition-colors duration-150">
+                <tr key={guide.id} className="hover:bg-white/10 transition-colors duration-300">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
-                      <div className="w-10 h-10 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
                         <span className="text-white font-medium text-sm">
                           {guide.name.split(' ').map(n => n[0]).join('')}
                         </span>
                       </div>
                       <div className="ml-4">
-                        <div className="text-sm font-medium text-gray-900">{guide.name}</div>
+                        <div className="text-sm font-bold text-white">{guide.name}</div>
                       </div>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">
+                    <span className="inline-flex px-3 py-1 text-xs font-bold rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 text-white shadow-sm">
                       {guide.department}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-white font-medium">
                     {guide.supervisor}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm">
                     <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                      guide.nps >= 90 ? 'bg-green-100 text-green-800' :
-                      guide.nps >= 80 ? 'bg-yellow-100 text-yellow-800' :
-                      'bg-red-100 text-red-800'
+                      guide.nps >= 90 ? 'bg-gradient-to-r from-green-400 to-emerald-400 text-white' :
+                      guide.nps >= 80 ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white' :
+                      'bg-gradient-to-r from-red-400 to-pink-400 text-white'
                     }`}>
                       {guide.nps}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm">
                     <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                      guide.nrpc >= 90 ? 'bg-green-100 text-green-800' :
-                      guide.nrpc >= 85 ? 'bg-yellow-100 text-yellow-800' :
-                      'bg-red-100 text-red-800'
+                      guide.nrpc >= 90 ? 'bg-gradient-to-r from-green-400 to-emerald-400 text-white' :
+                      guide.nrpc >= 85 ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white' :
+                      'bg-gradient-to-r from-red-400 to-pink-400 text-white'
                     }`}>
                       {guide.nrpc}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm">
                     <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                      guide.refundPercent <= 3 ? 'bg-green-100 text-green-800' :
-                      guide.refundPercent <= 4 ? 'bg-yellow-100 text-yellow-800' :
-                      'bg-red-100 text-red-800'
+                      guide.refundPercent <= 3 ? 'bg-gradient-to-r from-green-400 to-emerald-400 text-white' :
+                      guide.refundPercent <= 4 ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white' :
+                      'bg-gradient-to-r from-red-400 to-pink-400 text-white'
                     }`}>
                       {guide.refundPercent.toFixed(1)}%
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
-                      <Ticket className="w-4 h-4 text-yellow-500 mr-1" />
-                      <span className="text-sm font-medium text-gray-900">{guide.totalTickets}</span>
+                      <Ticket className="w-4 h-4 text-yellow-400 mr-1" />
+                      <span className="text-sm font-bold text-white">{guide.totalTickets}</span>
                     </div>
                   </td>
                 </tr>
@@ -219,7 +219,7 @@ export const GuidesView: React.FC = () => {
         
         {filteredGuides.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500">No guides found matching your criteria.</p>
+            <p className="text-white/60 text-lg">✨ No guides found matching your criteria ✨</p>
           </div>
         )}
       </div>
